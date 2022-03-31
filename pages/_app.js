@@ -1,7 +1,16 @@
-import '../styles/globals.css'
+import '../styles/globals.css';
+import { UserProvider } from '../context/userContext';
+import ResponsiveAppBar from '../src/responsiveAppBar'
 
-function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
+const MyApp = ({ Component, pageProps }) => {
+  return (
+    <div>
+      <UserProvider>
+        <ResponsiveAppBar/>
+        <Component {...pageProps} />
+      </UserProvider>
+    </div>
+  )
 }
 
 export default MyApp
